@@ -1,0 +1,16 @@
+<main class="auth">
+  <section class="auth__form">
+    <h1>Sign In</h1>
+    <form novalidate [formGroup]="form" name="filterForm">
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput ngDefaultControl [formControl]="$any(form).controls['email']" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput ngDefaultControl [formControl]="$any(form).controls['pwd']" />
+      </mat-form-field>
+      <button mat-button color="primary">Sign In</button>
+    </form>
+  </section>
+</main>
