@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormGroupDirective, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -13,6 +14,8 @@ import { ProfilesComponent } from './components/profiles/profiles.component';
 import { StatsComponent } from './components/stats/stats.component';
 import { TodayComponent } from './components/today/today.component';
 import { TretmentsComponent } from './components/tretments/tretments.component';
+import { TreatmentCrudService } from './services/treatment-crud.service';
+import { UserCrudService } from './services/user-crud.service';
 
 @NgModule({
   declarations: [
@@ -31,9 +34,14 @@ import { TretmentsComponent } from './components/tretments/tretments.component';
     FormsModule,
     ReactiveFormsModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule
   ],
-  providers: [FormGroupDirective],
+  providers: [
+    FormGroupDirective,
+    UserCrudService,
+    TreatmentCrudService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

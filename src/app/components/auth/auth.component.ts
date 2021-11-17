@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { TreatmentCrudService } from 'src/app/services/treatment-crud.service';
+import { UserCrudService } from 'src/app/services/user-crud.service';
 
 @Component({
   selector: 'app-auth',
@@ -15,9 +17,17 @@ export class AuthComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
+    private userCrudService: UserCrudService,
+    private treatmentCrudService: TreatmentCrudService,
   ) { }
 
   ngOnInit(): void {
+    this.userCrudService.GetMany().subscribe(r => {
+      console.log(r);
+    });
+    this.treatmentCrudService.GetMany().subscribe(r => {
+      console.log(r);
+    });
   }
 
 }
