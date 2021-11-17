@@ -14,6 +14,7 @@ import { ProfilesComponent } from './components/profiles/profiles.component';
 import { StatsComponent } from './components/stats/stats.component';
 import { TodayComponent } from './components/today/today.component';
 import { TretmentsComponent } from './components/tretments/tretments.component';
+import { GodDataService } from './services/god-data.service';
 import { TreatmentCrudService } from './services/treatment-crud.service';
 import { UserCrudService } from './services/user-crud.service';
 
@@ -40,7 +41,8 @@ import { UserCrudService } from './services/user-crud.service';
   providers: [
     FormGroupDirective,
     UserCrudService,
-    TreatmentCrudService
+    TreatmentCrudService,
+    GodDataService
   ],
   bootstrap: [AppComponent]
 })

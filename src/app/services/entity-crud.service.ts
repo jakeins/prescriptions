@@ -3,7 +3,8 @@ import { Observable } from "rxjs";
 import { HttpClient } from '@angular/common/http';
 
 import { IId } from "../models/shared";
-import { IRemoteRepository } from "../models/entity-repository.interface";
+import { IRemoteRepository } from "../models/remote-repository.interface";
+
 
 export abstract class EntityCrudService<T extends IId> implements IRemoteRepository {
   private endpointUrl = 'http://localhost:3000';
