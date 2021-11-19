@@ -89,7 +89,7 @@ export class GenerateScheduleComponent implements OnInit {
       }
     });
 
-    const scheduleTakes = this.godDataService.GenerateSimpleSchedule(
+    const scheduleTakes = this.godDataService.GenerateSimpleTakeSchedule(
       fval.startingFrom,
       fval.days,
       fval.everyNthDay,

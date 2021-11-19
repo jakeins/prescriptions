@@ -21,19 +21,19 @@ export class AuthComponent implements OnInit {
 
   ngOnInit(): void {
     this.godDataService.GetRichUsers().subscribe(x => console.log('Demoing rich users.', x));
-    console.log('everyday morning for 14 days', this.godDataService.GenerateSimpleSchedule(
+    console.log('everyday morning for 14 days', this.godDataService.GenerateSimpleTakeSchedule(
       new Date(),
       14,
       1,
       [ [ 8, 0 ]  ]
     ));
-    console.log('ever 2 days evening for 7 days', this.godDataService.GenerateSimpleSchedule(
+    console.log('ever 2 days evening for 7 days', this.godDataService.GenerateSimpleTakeSchedule(
       new Date(),
       7,
       2,
       [ [ 18, 0 ] ]
     ));
-    console.log('everyday 3 times for 3 months', this.godDataService.GenerateSimpleSchedule(
+    console.log('everyday 3 times for 3 months', this.godDataService.GenerateSimpleTakeSchedule(
       new Date(),
       90,
       1,
