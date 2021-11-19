@@ -3,7 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthComponent } from './components/auth/auth.component';
 import { GenerateScheduleComponent } from './components/generate-schedule/generate-schedule.component';
 
+import { ProfileComponent } from './components/profile/profile.component';
 import { ProfilesComponent } from './components/profiles/profiles.component';
+import { TretmentComponent } from './components/tretment/tretment.component';
 
 const routes: Routes = [
   {
@@ -13,6 +15,14 @@ const routes: Routes = [
   {
     path: 'profiles',
     component: ProfilesComponent
+  },
+  {
+    path: 'profile/:id',
+    component: ProfileComponent
+  },
+  {
+    path: 'treatment/:id',
+    component: TretmentComponent
   },
   {
     path: 'generate-schedule',

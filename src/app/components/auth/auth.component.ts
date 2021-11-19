@@ -1,6 +1,13 @@
+import { firstValueFrom } from 'rxjs';
+import { IRichUser } from 'src/app/models/rich-user.interface';
+import { GodDataService } from 'src/app/services/god-data.service';
+import { TreatmentCrudService } from 'src/app/services/treatment-crud.service';
+import { UserCrudService } from 'src/app/services/user-crud.service';
+import { UserService } from 'src/app/services/user.service';
+
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { GodDataService } from 'src/app/services/god-data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth',
@@ -13,32 +20,27 @@ export class AuthComponent implements OnInit {
     pwd: ['', Validators.required],
   });
 
+  public get email() { return this.form.get('email'); }
+
 
   constructor(
     private formBuilder: FormBuilder,
     private godDataService: GodDataService,
+    private userDataService: UserService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
-    this.godDataService.GetRichUsers().subscribe(x => console.log('Demoing rich users.', x));
-    console.log('everyday morning for 14 days', this.godDataService.GenerateSimpleTakeSchedule(
-      new Date(),
-      14,
-      1,
-      [ [ 8, 0 ]  ]
-    ));
-    console.log('ever 2 days evening for 7 days', this.godDataService.GenerateSimpleTakeSchedule(
-      new Date(),
-      7,
-      2,
-      [ [ 18, 0 ] ]
-    ));
-    console.log('everyday 3 times for 3 months', this.godDataService.GenerateSimpleTakeSchedule(
-      new Date(),
-      90,
-      1,
-      [ [ 8, 0 ], [ 14, 0 ], [ 19, 0 ] ]
-    ));
+    //   this.godDataService.GetRichUser().subscribe(x => console.log('Demoing rich users.', x));
+    // }
   }
+  async onLogin(): Promise<void> {
+    const users = await firstValueFrom(this.godDataService.GetRichUsers());
+    if (users.find(u => u.login === this.email?.value)) {
+      const user = await firstValueFrom(this.godDataService.GetRichUser(this.email?.value));
+      this.userDataService.setUserData(user as IRichUser);
+      this.router.navigate(['/profiles']);
+    }
 
+  }
 }
