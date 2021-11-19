@@ -1,0 +1,18 @@
+@import "../../app.component.scss";
+
+.profile {
+  margin: 24px;
+
+  &__status-tabs {
+    @extend .display-flex;
+
+    &__group {
+      margin: 24px;
+      width: 100%;
+    }
+  }
+  h3 {
+    width: 100%;
+    text-align: center;
+  }
+}

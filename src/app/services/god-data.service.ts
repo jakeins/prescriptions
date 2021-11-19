@@ -79,9 +79,9 @@ export class GodDataService {
   }
 
   public UpdateUserProfiles(login: string, profiles: IProfile[]): Observable<IUser | undefined> {
-    if ((profiles as any).treatments) {
-      throw 'Looks like you pushed IRichProfile instead of regular IProfile. That is not supported.';
-    }
+    // if ((profiles as any).treatments) {
+    //   throw 'Looks like you pushed IRichProfile instead of regular IProfile. That is not supported.';
+    // }
 
     let user: IUser;
     return this.GetUser(login).pipe(

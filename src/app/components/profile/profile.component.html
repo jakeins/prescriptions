@@ -1,0 +1,20 @@
+<main class="profile">
+  <h3>Select Treatment</h3>
+  <section class="profile__status-tabs">
+    <mat-tab-group mat-stretch-tabs class="profile__status-tabs__group mat-elevation-z4">
+      <mat-tab (click)="showActive()" label="Active"> 
+        <mat-list role="list">
+          <mat-list-item *ngFor="let treatment of profile.treatments" role="listitem">
+            <a mat-button [routerLink]="['/treatment', treatment.id]">
+              {{ treatment.name }}
+            </a>
+          </mat-list-item>
+        </mat-list>
+      </mat-tab>
+      <mat-tab (click)="showCompleted()" label="Completed"> Content 2 </mat-tab>
+      <mat-tab (click)="showAll()" label="All"> Content 3 </mat-tab>
+    </mat-tab-group>
+  </section>
+  <section class="profile__treatments-list"></section>
+  <section class="profile__add-treatments"></section>
+</main>

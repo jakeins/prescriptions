@@ -8,9 +8,9 @@
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Password</mat-label>
-        <input matInput ngDefaultControl [formControl]="$any(form).controls['pwd']" />
+        <input type="password" matInput ngDefaultControl [formControl]="$any(form).controls['pwd']" />
       </mat-form-field>
-      <button mat-flat-button color="primary">Login</button>
+      <button mat-flat-button (click)="onLogin()" color="primary">Login</button>
     </form>
   </section>
 </main>
