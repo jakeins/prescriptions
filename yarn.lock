@@ -4005,6 +4005,13 @@ make-fetch-happen@^9.0.1, make-fetch-happen@^9.1.0:
     socks-proxy-agent "^6.0.0"
     ssri "^8.0.0"
 
+mat-timepicker@^5.1.4:
+  version "5.1.4"
+  resolved "https://advancedmd.jfrog.io/advancedmd/api/npm/advancedmd-npm-shared/mat-timepicker/-/mat-timepicker-5.1.4.tgz#3d6f04572ae1e43999d4341a74fc35c08b2fc691"
+  integrity sha1-PW8EVyrh5DmZ1DQadPw1wIsvxpE=
+  dependencies:
+    tslib "^2.0.0"
+
 media-typer@0.3.0:
   version "0.3.0"
   resolved "https://advancedmd.jfrog.io/advancedmd/api/npm/advancedmd-npm-shared/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"

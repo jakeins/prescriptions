@@ -5,7 +5,7 @@ import { Injectable } from "@angular/core";
 
 import { UserCrudService } from "./user-crud.service";
 import { TreatmentCrudService } from "./treatment-crud.service";
-import { IProfile, ITake, ITreatment, IUser } from "../models/shared";
+import { IProfile, ITake, ITreatment, IUser, IUserPermission } from "../models/shared";
 import { IRichUser } from "../models/rich-user.interface";
 
 @Injectable()
@@ -127,6 +127,66 @@ export class GodDataService {
           else {
             throw `Missing ${take.planned} take.`;
           }
+        }
+        else {
+          return of(undefined);
+        }
+      })
+    );
+  }
+
+  /**
+   * Create scheduled takes.
+   * @param startDate Date with a day to start takes from.
+   * @param daysDuration Sum of the days a patient takes a medication, INCLUDING the skipped days.
+   * @param everyNthDay The day frequency of days a patient takes a medication. (1 - everyday, 2 - every other days etc.)
+   * @param daySchedule Times of takes within the each take day - sets both a day frequency and a specific time.
+   */
+  public GenerateSimpleTakeSchedule(startDate: Date, daysDuration: number, everyNthDay: number, daySchedule: [hours: number, minutes: number][]): ITake[] {
+    // Validate
+    if (everyNthDay < 1 || everyNthDay > daysDuration) {
+      throw 'Bad everyNthDay value.';
+    }
+
+    // Sanitize
+    let dayStart = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate());
+
+    // Generate
+    const takes: ITake[] = [];
+    for (let index = 1; index <= daysDuration; index++) {
+      if (everyNthDay < 2 || index % everyNthDay === 0) {
+        daySchedule.forEach(time => {
+          takes.push({
+            guid: '',
+            planned: new Date(dayStart.getFullYear(), dayStart.getMonth(), dayStart.getDate(), time[0], time[1])
+          });
+        });
+      }
+      dayStart.setDate(dayStart.getDate() + 1);
+    }
+
+    return takes;
+  }
+
+  public shareTreatment(treatmentId: number, userPermission: IUserPermission): Observable<ITreatment | undefined> {
+    let treatment: ITreatment;
+    return this.treatments.GetOne(treatmentId).pipe(
+      tap(u => {
+        treatment = u as ITreatment; // save data outside
+      }),
+      mergeMap(() => {
+        if (treatment) {
+          const existing = treatment.userPermissions.find(up => up.login === userPermission.login)
+          if (existing) {
+            existing.permission.canWatch = userPermission.permission.canWatch;
+            existing.permission.canTake = userPermission.permission.canTake;
+            existing.permission.canEdit = userPermission.permission.canEdit;
+          }
+          else {
+            treatment.userPermissions.push(userPermission);
+          }
+
+          return this.treatments.Update(treatment);
         }
         else {
           return of(undefined);
