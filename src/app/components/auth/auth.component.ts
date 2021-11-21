@@ -25,7 +25,6 @@ export class AuthComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private godDataService: GodDataService,
     private userDataService: UserService,
     private router: Router,
   ) { }
@@ -34,13 +33,9 @@ export class AuthComponent implements OnInit {
     this.userDataService.signOut();
   }
   async onLogin(): Promise<void> {
-    const users = await firstValueFrom(this.godDataService.GetRichUsers());
-    if (users.find(u => u.login === this.email?.value)) {
-      const user = await firstValueFrom(this.godDataService.GetRichUser(this.email?.value));
-      this.userDataService.setUserData(user as IRichUser);
+    this.userDataService.resetUserData(this.email?.value).subscribe(() =>{
       this.userDataService.signIn();
       this.router.navigate(['/today']);
-    }
-
+    });
   }
 }

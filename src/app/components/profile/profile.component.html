@@ -22,7 +22,10 @@
            </p>
           </section>
           <ng-container *ngIf="treatmentForm">
-            <generate-schedule></generate-schedule>
+            <generate-schedule
+              [ownerEmail]="user.login"
+              (generated)="onNewTreatment($event)"
+            ></generate-schedule>
           </ng-container>
           <mat-divider></mat-divider>
         </mat-list>

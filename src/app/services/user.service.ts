@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, map, Observable, tap } from 'rxjs';
 
 import { IRichProfile } from '../models/rich-profile.interface';
 import { IRichUser } from '../models/rich-user.interface';
+import { GodDataService } from './god-data.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +16,21 @@ export class UserService {
   private profileData!: IRichProfile;
   private isUserSignIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
-  constructor() {
+  constructor(
+    private godDataService: GodDataService,
+  ) {
     this.isUserSignIn.next(!!localStorage.getItem('signedin'));
+  }
+
+  public resetUserData(login?: string): Observable<any> {
+    login = login? login : (this.userData as IRichUser).login;
+
+    return this.godDataService.GetRichUser(login).pipe(
+      tap(ruser => {
+        console.log('resetting user data', ruser);
+        this.setUserData(ruser as IRichUser);
+      })
+    );
   }
 
   public setUserData(user: IRichUser, remember = true): IRichUser {
