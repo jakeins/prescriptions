@@ -31,7 +31,7 @@ export class TodayComponent implements OnInit {
 
   public now = new Date();
 
-  public foreverMode = false;
+  public foreverMode = true;
 
   constructor(
     private userDataService: UserService,
