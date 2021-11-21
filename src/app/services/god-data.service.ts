@@ -63,19 +63,49 @@ export class GodDataService {
     const allowedTreatments = new Map(treatments
                                 .filter(treatment => treatment.userPermissions.some(up => up.login === user.login))
                                 .map(treatment => [ treatment.id, treatment ]));
-    return {
+    const ruser: IRichUser = {
       id: user.id,
       login: user.login,
       profiles: user.profiles.map(profile => {
-        profile.treatmentIds = profile.treatmentIds || [];
+        profile.acceptedTreatmentIds = profile.acceptedTreatmentIds || [];
+        profile.declinedTreatmentIds = profile.declinedTreatmentIds || [];
+
+        const acceptedTreatments: ITreatment[] = profile.acceptedTreatmentIds.map(atid => {
+          let treatment: ITreatment | null = null;
+
+          if (allowedTreatments.has(atid)) {
+            treatment = allowedTreatments.get(atid) as ITreatment;
+            allowedTreatments.delete(atid);
+          }
+
+          return treatment;
+        }).filter(treatment => treatment) as ITreatment[];
+
+        const declinedTreatments: ITreatment[] = profile.declinedTreatmentIds.map(atid => {
+          let treatment: ITreatment | null = null;
+
+          if (allowedTreatments.has(atid)) {
+            treatment = allowedTreatments.get(atid) as ITreatment;
+            allowedTreatments.delete(atid);
+          }
+
+          return treatment;
+        }).filter(treatment => treatment) as ITreatment[];
+
         return {
           name: profile.name,
-          treatments: profile.treatmentIds
-                        .filter(tid => allowedTreatments.has(tid))
-                        .map(tid => allowedTreatments.get(tid) as ITreatment)
+          acceptedTreatments,
+          declinedTreatments
         };
-      })
+      }),
+      newTreatments: []
     };
+
+    const outstandingTreatments: ITreatment[] = Array.from(allowedTreatments.values());
+
+    ruser.newTreatments = outstandingTreatments;
+
+    return ruser;
   }
 
   public UpdateUserProfiles(login: string, profiles: IProfile[]): Observable<IUser | undefined> {

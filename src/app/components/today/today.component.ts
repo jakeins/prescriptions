@@ -35,7 +35,7 @@ export class TodayComponent implements OnInit {
     const richUser = this.userDataService.getUserData();
 
     richUser.profiles.forEach(profile => {
-      profile.treatments.forEach(treatment => {
+      profile.acceptedTreatments.forEach(treatment => {
         treatment.medications.forEach(medication => {
           newrichtakes.push(...medication.schedule.takes.map(take => ({
             profile: profile,

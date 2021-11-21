@@ -16,6 +16,7 @@ import { MatTimepickerModule } from 'mat-timepicker';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatSelectModule } from '@angular/material/select';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -66,7 +67,8 @@ import { StatusComponent } from './components/status/status.component';
     MatTimepickerModule,
     MatDividerModule,
     MatCardModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatSelectModule
   ],
   providers: [
     FormGroupDirective,

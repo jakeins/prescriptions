@@ -17,21 +17,56 @@ export class TretmentComponent implements OnInit {
   public profile!: IRichProfile;
   public treatment!: ITreatment;
 
+  public isNewTreatment = false;
+
   constructor(
     private route: ActivatedRoute,
     private userService: UserService,
   ) { }
 
   ngOnInit(): void {
-    this.profile = this.userService.getCurrentProfile();
+    this.user = this.userService.getUserData();
+
+    console.log('this.user', this.user);
+
     this.route.params.subscribe(params => {
-      if (this.profile) {
-        this.treatment = this.profile.treatments.find(t => t.id === +params['id']) as ITreatment;
+      const pname: string = params['pid'];
+
+      if (pname) {
+        const profile = this.user.profiles.find(p => p.name === pname);
+
+        if (profile) {
+          this.profile = profile;
+        }
+      }
+
+      const tid: number = +params['id'];
+
+      let target = this.user.profiles.flatMap(p => p.acceptedTreatments).find(t => t.id === tid);
+
+      if (!target) {
+        this.isNewTreatment = true;
+        target = this.user.newTreatments.find(t => t.id === tid);
+        console.log('Looking for treatment in new ones for user.');
+      }
+      else {
+        console.log('Found treatment in accepted ones.');
+      }
+
+      if (target) {
+        this.treatment = target;
+      }
+      else {
+        throw `Treatment #${params['id']} not found for user ${this.user.login}`;
       }
     });
   }
 
   public accept() {
+    // TODO: put current new treatment into the accepted set
+  }
+
+  public goBack() {
     
   }
 

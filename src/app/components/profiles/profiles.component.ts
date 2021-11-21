@@ -41,9 +41,20 @@ export class ProfilesComponent implements OnInit {
 
   public async addPerson(): Promise<void> {
     if (this.name?.value) {
-      const newProfile: IProfile = { name: this.name?.value, treatmentIds: [] };
-      const profiles = this.user.profiles.map((p => ({ name: p.name, treatmentIds: p.treatments.map(t => t.id) })));
+      const newProfile: IProfile = {
+        name: this.name?.value,
+        acceptedTreatmentIds: [],
+        declinedTreatmentIds: []
+       };
+
+      const profiles: IProfile[] = this.user.profiles.map(rp => ({ 
+        name: rp.name,
+        acceptedTreatmentIds: rp.acceptedTreatments.map(t => t.id),
+        declinedTreatmentIds: rp.acceptedTreatments.map(t => t.id)
+      }));
+
       const updatedUser = await firstValueFrom(this.godDataService.UpdateUserProfiles(this.user.login, [...profiles, { ...newProfile }]));
+      
       console.log('updated', updatedUser);
       this.profiles.push(newProfile as any);
       this.form.reset();
