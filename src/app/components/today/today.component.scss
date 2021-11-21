@@ -5,4 +5,34 @@
     margin: 24px;
     text-align: center;
   }
+
+  .takeitem {
+    &.isTaken a {
+      color: green;
+    }
+
+    &.isSkipped a {
+      color: orangered;
+    }
+
+    &.isSnoozed {
+    }
+
+    &.isClosed {
+    }
+
+    &.isComing {
+      color: green;
+    }
+
+    &.isOverdue a {
+      color: gray;
+    }
+
+    &.isComingOrLater {
+    }
+
+    &.isEditable {
+    }
+  }
 }
