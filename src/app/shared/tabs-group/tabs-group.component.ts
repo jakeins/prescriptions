@@ -15,6 +15,7 @@ export class TabsGroupComponent implements OnInit {
 
   ngOnInit(): void {
     this.userService.getUserStatus().subscribe(isSignIn => {
+      console.log('User status published', isSignIn);
       this.show = isSignIn;
     });
   }

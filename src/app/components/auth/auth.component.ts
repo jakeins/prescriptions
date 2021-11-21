@@ -31,15 +31,15 @@ export class AuthComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    //   this.godDataService.GetRichUser().subscribe(x => console.log('Demoing rich users.', x));
-    // }
+    this.userDataService.signOut();
   }
   async onLogin(): Promise<void> {
     const users = await firstValueFrom(this.godDataService.GetRichUsers());
     if (users.find(u => u.login === this.email?.value)) {
       const user = await firstValueFrom(this.godDataService.GetRichUser(this.email?.value));
       this.userDataService.setUserData(user as IRichUser);
-      this.router.navigate(['/profiles']);
+      this.userDataService.signIn();
+      this.router.navigate(['/today']);
     }
 
   }
