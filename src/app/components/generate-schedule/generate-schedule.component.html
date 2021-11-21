@@ -1,0 +1,134 @@
+<main [formGroup]="form">
+  <section class="schedule-form">
+    <h1>Start Single-Med Treatment</h1>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Treatment reason</mat-label>
+      <input matInput ngDefaultControl formControlName="treatmentReason" />
+    </mat-form-field>
+
+    <br/>
+    <mat-form-field appearance="fill">
+      <mat-label>Medication Name</mat-label>
+      <input matInput ngDefaultControl formControlName="medicationName" />
+    </mat-form-field>
+
+    <br/>
+    <mat-form-field appearance="fill">
+      <mat-label>Starting From</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="startingFrom">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+
+    <br/>
+    <mat-form-field appearance="fill">
+      <mat-label>Days</mat-label>
+      <input matInput ngDefaultControl formControlName="days" />
+    </mat-form-field>
+
+    <br/>
+    <mat-form-field appearance="fill">
+      <mat-label>Every Nth Day</mat-label>
+      <input matInput ngDefaultControl formControlName="everyNthDay"/>
+    </mat-form-field>
+
+    <br/>
+    <mat-form-field appearance="fill" style="margin-right: 12px;">
+      <mat-label>Morning take time</mat-label>
+      <input matTimepicker formControlName="morningTakeTime">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" style="margin-right: 12px;">
+      <mat-label>Day take time</mat-label>
+      <input matTimepicker formControlName="dayTakeTime">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Evening take time</mat-label>
+      <input matTimepicker formControlName="eveningTakeTime">
+    </mat-form-field>
+
+    <table>
+      <tr>
+        <th></th>
+        <th>Watch</th>
+        <th>Take</th>
+        <th>Edit</th>
+      </tr>
+      <tr>
+        <td>
+          <mat-form-field appearance="fill">
+            <mat-label>Doctor</mat-label>
+            <input matInput ngDefaultControl formControlName="doctorEmail" />
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-checkbox formControlName="doctorCanWatch"></mat-checkbox>
+        </td>
+        <td>
+          <mat-checkbox formControlName="doctorCanTake"></mat-checkbox>
+        </td>
+        <td>
+          <mat-checkbox formControlName="doctorCanEdit"></mat-checkbox>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <mat-form-field appearance="fill">
+            <mat-label>Patient</mat-label>
+            <input matInput ngDefaultControl formControlName="patientEmail" />
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-checkbox formControlName="patientCanWatch"></mat-checkbox>
+        </td>
+        <td>
+          <mat-checkbox formControlName="patientCanTake"></mat-checkbox>
+        </td>
+        <td>
+          <mat-checkbox formControlName="patientCanEdit"></mat-checkbox>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <mat-form-field appearance="fill">
+            <mat-label>Caregiver</mat-label>
+            <input matInput ngDefaultControl formControlName="caregiverEmail" />
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-checkbox formControlName="caregiverCanWatch"></mat-checkbox>
+        </td>
+        <td>
+          <mat-checkbox formControlName="caregiverCanTake"></mat-checkbox>
+        </td>
+        <td>
+          <mat-checkbox formControlName="caregiverCanEdit"></mat-checkbox>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <mat-form-field appearance="fill">
+            <mat-label>Responsible</mat-label>
+            <input matInput ngDefaultControl formControlName="responsibleEmail" />
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-checkbox formControlName="responsibleCanWatch"></mat-checkbox>
+        </td>
+        <td>
+          <mat-checkbox formControlName="responsibleCanTake"></mat-checkbox>
+        </td>
+        <td>
+          <mat-checkbox formControlName="responsibleCanEdit"></mat-checkbox>
+        </td>
+      </tr>
+    </table>
+
+    <br/>
+    <button mat-raised-button color="primary" (click)="generate()">Confirm</button>
+  
+  </section>
+</main>

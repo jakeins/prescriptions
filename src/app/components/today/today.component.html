@@ -1,1 +1,15 @@
-<p>today works!</p>
+<main class="today">
+  <h1>Today</h1>
+  <section class="TODO">
+    <mat-card>
+      <mat-list role="list">
+        <mat-list-item *ngFor="let richtake of richtakes" role="listitem">
+          <span>
+            {{ richtake.medication.name }} @ {{ richtake.take.planned }} for {{ richtake.profile.name }}
+          </span>
+          <mat-divider></mat-divider>
+        </mat-list-item>
+      </mat-list>
+    </mat-card>
+  </section>
+</main>

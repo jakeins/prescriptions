@@ -1,0 +1,59 @@
+@import "../../app.component.scss";
+
+.profiles {
+  h1 {
+    margin: 24px;
+    text-align: center;
+  }
+
+  &__list {
+    @extend .display-flex;
+    width: auto;
+    ::ng-deep {
+      mat-card {
+        width: 100%;
+      }
+      mat-list {
+        mat-list-item {
+          .mat-list-item-content {
+            padding: 0 0 0 8px;
+
+            span > button {
+              margin-left: 14px;
+            }
+
+            mad-divider {
+              margin-top: 14px;
+            }
+          }
+        }
+      }
+    }
+    margin: 24px;
+  }
+
+  &__add {
+    @extend .display-flex;
+    form {
+      display: flex;
+      align-items: center;
+      
+      button {
+        margin-bottom: 14px;
+      }
+
+      mat-form-field {
+        margin-right: 14px;
+      }
+    }
+  }
+
+  p {
+    text-align: center;
+    margin: 24px 0;
+  
+    button {
+      margin-left: 24px;
+    }
+  }
+}
