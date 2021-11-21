@@ -1,1 +1,40 @@
-<p>status works!</p>
+<div class="flex-container">
+    <div>
+        <div class="align-item">
+            <h2>Gregory House</h2>
+        </div>
+        <div class="main-container">
+            <div >
+                <ejs-accumulationchart class="align-item"  id="container" width='92%' [legendSettings]="legendSettings" [title]="title"
+                    [tooltip]="tooltipThreatment" [enableAnimation]='enableAnimation'>
+                    <div class="align-item">
+                        <e-accumulation-series-collection>
+                            <e-accumulation-series name='Browser' [dataSource]='pieData1' [dataLabel]='datalabel'
+                                xName='x' yName='y' [startAngle]="startAngle" [endAngle]="endAngle" innerRadius="20%"
+                                radius="r">
+                            </e-accumulation-series>
+                        </e-accumulation-series-collection>
+                    </div>
+                </ejs-accumulationchart>
+            </div>
+            <p class="align-item align-bottom">
+                Your on &nbsp; <strong style="color:#2EF117"> 5 </strong> &nbsp; days streak. Hope you feel better!)</p>
+            <hr>
+            <div> 
+                <ejs-chart id="chart-container" [primaryXAxis]='primaryXAxis' [tooltip]="tooltipMedication"
+                    [primaryYAxis]='primaryYAxis' [title]='statsTitle' [palettes]="palette">
+                    <e-series-collection>
+                        <e-series [dataSource]='chartData' type='Column' xName='Medication' yName='FullCourse'
+                            name='Full course' width=4></e-series>
+                        <e-series [dataSource]='chartData' type='Column' xName='Medication' yName='Available'
+                            name='Available' width=4></e-series>
+                        <e-series [dataSource]='chartData' type='Column' xName='Medication' yName='Used' name='Used'
+                            width=4></e-series>
+                        <e-series [dataSource]='chartData' type='Column' xName='Medication' yName='DosePerDay'
+                            name='Dose Per Day' v></e-series>
+                    </e-series-collection>
+                </ejs-chart>
+            </div>
+        </div>
+    </div>
+</div>

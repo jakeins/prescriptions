@@ -12,7 +12,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatTimepickerModule } from 'mat-timepicker';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
@@ -30,11 +29,11 @@ import { GodDataService } from './services/god-data.service';
 import { TreatmentCrudService } from './services/treatment-crud.service';
 import { UserCrudService } from './services/user-crud.service';
 import { AccumulationAnnotationService, AccumulationChartModule, AccumulationDataLabelService, AccumulationLegendService, AccumulationTooltipService, BarSeriesService, CategoryService, ChartModule, ColumnSeriesService, DataLabelService, LegendService, LineSeriesService, MultiLevelLabelService, PieSeriesService, SelectionService, TooltipService } from '@syncfusion/ej2-angular-charts';
-import { SummaryComponent } from './components/summary/summary.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { TabsGroupComponent } from './shared/tabs-group/tabs-group.component';
 import { StatusComponent } from './components/status/status.component';
+import { MatTimepickerModule } from 'mat-timepicker';
 
 @NgModule({
   declarations: [
@@ -44,7 +43,6 @@ import { StatusComponent } from './components/status/status.component';
     TretmentComponent,
     TodayComponent,
     StatsComponent,
-    SummaryComponent
     ProfileComponent,
     GenerateScheduleComponent,
     TabsGroupComponent,
@@ -61,7 +59,7 @@ import { StatusComponent } from './components/status/status.component';
     MatButtonModule,
     HttpClientModule,
     AccumulationChartModule,
-    ChartModule 
+    ChartModule,
     MatListModule,
     MatBadgeModule,
     MatIconModule,
