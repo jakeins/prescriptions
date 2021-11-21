@@ -17,6 +17,8 @@ import { TretmentsComponent } from './components/tretments/tretments.component';
 import { GodDataService } from './services/god-data.service';
 import { TreatmentCrudService } from './services/treatment-crud.service';
 import { UserCrudService } from './services/user-crud.service';
+import { AccumulationAnnotationService, AccumulationChartModule, AccumulationDataLabelService, AccumulationLegendService, AccumulationTooltipService, BarSeriesService, CategoryService, ChartModule, ColumnSeriesService, DataLabelService, LegendService, LineSeriesService, MultiLevelLabelService, PieSeriesService, SelectionService, TooltipService } from '@syncfusion/ej2-angular-charts';
+import { SummaryComponent } from './components/summary/summary.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { UserCrudService } from './services/user-crud.service';
     ProfilesComponent,
     TretmentsComponent,
     TodayComponent,
-    StatsComponent
+    StatsComponent,
+    SummaryComponent
   ],
   imports: [
     BrowserModule,
@@ -36,13 +39,29 @@ import { UserCrudService } from './services/user-crud.service';
     ReactiveFormsModule,
     MatInputModule,
     MatButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    AccumulationChartModule,
+    ChartModule 
   ],
   providers: [
     FormGroupDirective,
     UserCrudService,
     TreatmentCrudService,
-    GodDataService
+    GodDataService,
+    PieSeriesService,
+    AccumulationLegendService,
+    AccumulationTooltipService,
+    AccumulationDataLabelService,
+    AccumulationAnnotationService,
+    CategoryService, 
+    BarSeriesService,
+    ColumnSeriesService,
+    LineSeriesService,
+    LegendService,
+    DataLabelService, 
+    MultiLevelLabelService,
+    SelectionService,
+    TooltipService 
   ],
   bootstrap: [AppComponent]
 })
