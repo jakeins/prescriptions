@@ -1,0 +1,13 @@
+<main class="treatment">
+  <section>
+    <h1>{{treatment.name}}</h1>
+    <div class="treatment__info" *ngFor="let medication of treatment.medications" role="listitem">
+      <p>Medication Name: <strong>{{medication.name}}</strong></p>  
+      <p>Times per day: <strong>1</strong></p>
+      <p>Days: <strong>{{ medication.schedule.takes.length }}</strong></p>
+      <p>Summary: <strong>{{medication.schedule.summary}}</strong></p>
+      <button mat-flat-button (click)="accept()" color="primary">Accept</button>
+      <mat-divider></mat-divider>
+    </div>
+  </section>
+</main>

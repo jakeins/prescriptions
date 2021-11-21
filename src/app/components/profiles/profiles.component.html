@@ -1,39 +1,45 @@
 <main class="profiles">
   <h1>Profiles</h1>
   <section class="profiles__list">
-    <mat-list role="list">
-      <mat-list-item *ngFor="let profile of profiles" role="listitem">
-        <span>
-          {{ profile.name }}
-          <button
-            [routerLink]="['/profile', profile.name]"
-            mat-raised-button
-            color="primary"
-            [matBadge]="profile.treatments.length"
-            matBadgePosition="after"
-            matBadgeColor="accent">
-            Active Treatments
+    <mat-card>
+      <mat-list role="list">
+        <mat-list-item *ngFor="let profile of profiles" role="listitem">
+          <span>
+            {{ profile.name }}
+            <button
+              [routerLink]="['/profile', profile.name]"
+              (click)='setCurrentProfile(profile)'
+              mat-raised-button
+              color="primary"
+              [matBadge]="profile.treatments.length"
+              matBadgePosition="after"
+              matBadgeColor="accent">
+              Treatments
+            </button>
+          </span>
+          <mat-divider></mat-divider>        
+        </mat-list-item>
+        <p>Add Related Person 
+          <button 
+            mat-mini-fab 
+            (click)="showPersonForm()"
+            color="primary" 
+            aria-label="Add related person">
+            +
           </button>
-        </span>
-      </mat-list-item>
-      <p>Add Related Person 
-        <button 
-          mat-mini-fab 
-          (click)="showPersonForm()"
-          color="primary" 
-          aria-label="Add related person">
-          +
-        </button>
-     </p>
-    </mat-list>
+       </p>
+      </mat-list>
+    </mat-card>
   </section>
   <section *ngIf="personForm" class="profiles__add">
-    <form novalidate [formGroup]="form" name="filterForm">
-      <mat-form-field appearance="fill">
-        <mat-label>Person Name</mat-label>
-        <input matInput ngDefaultControl [formControl]="$any(form).controls['name']" />
-      </mat-form-field>
-      <button mat-flat-button (click)="addPerson()" color="primary">Add Person</button>
-    </form>
+    <mat-card>
+      <form novalidate [formGroup]="form" name="filterForm">
+        <mat-form-field appearance="fill">
+          <mat-label>Person Name</mat-label>
+          <input matInput ngDefaultControl [formControl]="$any(form).controls['name']" />
+        </mat-form-field>
+        <button mat-flat-button (click)="addPerson()" color="primary">Add Person</button>
+      </form>
+    </mat-card>
   </section>
 </main>

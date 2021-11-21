@@ -1,0 +1,7 @@
+<section *ngIf="show" class="tabs-group">
+  <mat-button-toggle-group name="navigation tabs" aria-label="Navigation tab">
+    <mat-button-toggle [routerLink]="['/today']" value="red">Today</mat-button-toggle>
+    <mat-button-toggle [routerLink]="['/profiles']" value="green">Profile</mat-button-toggle>
+    <mat-button-toggle [routerLink]="['/status']"  value="blue">Status</mat-button-toggle>
+  </mat-button-toggle-group>
+</section>
