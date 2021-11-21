@@ -6,7 +6,7 @@
         <mat-list role="list">
           <mat-list-item *ngFor="let treatment of profile.acceptedTreatments" role="listitem">
             <a mat-button [routerLink]="['/profile', profile.name, 'treatment', treatment.id]">
-              {{ treatment.name }}
+              • {{ treatment.name }}
             </a>
             <mat-divider></mat-divider>
           </mat-list-item>

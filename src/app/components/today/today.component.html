@@ -4,10 +4,40 @@
     <mat-card>
       <mat-list role="list">
         <mat-list-item *ngFor="let richtake of richtakes" role="listitem">
-          <span>
-            {{ richtake.medication.name }} @ {{ richtake.take.planned }} for {{ richtake.profile.name }}
+          <span class="takeitem" [ngClass]="{
+            'isTaken': richtake.isTaken,
+            'isSkipped': richtake.isSkipped,
+            'isSnoozed': richtake.isSnoozed,
+            'isClosed': richtake.isClosed,
+            'isComing': richtake.isComing,
+            'isOverdue': richtake.isOverdue,
+            'isComingOrLater': richtake.isComingOrLater,
+            'isEditable': richtake.isEditable
+          }">
+            <span style="display:inline-block; width:400px">
+              <span *ngIf="foreverMode">{{ richtake.take.planned | date: 'MMM d' }}</span>
+              {{ richtake.take.planned | date: 'h:mm' }}
+              |
+              <strong>{{ richtake.medication.name }}</strong>
+              for
+              {{ richtake.profile.name }}
+            </span>
+
+            <span *ngIf="richtake.isEditable">
+              <button mat-flat-button color="primary" (click)="take(richtake)">Take</button>
+              &nbsp;
+              <button mat-flat-button color="warn" (click)="skip(richtake)">Skip</button>
+            </span>
+
+            <a *ngIf="richtake.isOverdue" mat-flat-button disabled>Overdue</a>
+
+            <a *ngIf="richtake.isSkipped" mat-flat-button disabled>Skipped</a>
+
+            <a *ngIf="richtake.isTaken" mat-flat-button disabled>Taken</a>
+            
+
           </span>
-          <mat-divider></mat-divider>
+        <mat-divider></mat-divider>
         </mat-list-item>
       </mat-list>
     </mat-card>

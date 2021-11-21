@@ -44,6 +44,7 @@ export class ProfileComponent implements OnInit {
   }
 
   public onNewTreatment(t: ITreatment) {
+    // TODO: offload to a service
     // Create treatment
     this.godDataService.CreateTreatment(t).subscribe(ct => {
       // Share treatment

@@ -1,7 +1,29 @@
 <main class="profiles">
   <h1>Profiles</h1>
   <section class="profiles__list">
+
+    <mat-card *ngIf="user.newTreatments.length">
+      <h3>New Treatments</h3>
+      <mat-list role="list">
+        <mat-list-item *ngFor="let treatment of user.newTreatments" role="listitem">
+          <span>
+            New treatment "{{ treatment.name }}" from {{ treatment.author }}
+            <button
+              [routerLink]="['/treatment', treatment.id]"
+              mat-raised-button
+              color="primary"
+              matBadgePosition="after"
+              matBadgeColor="accent">
+              Review
+            </button>
+          </span>
+          <mat-divider></mat-divider>
+        </mat-list-item>
+      </mat-list>
+    </mat-card>
+
     <mat-card>
+      <h3 *ngIf="user.newTreatments.length">Profiles</h3>
       <mat-list role="list">
         <mat-list-item *ngFor="let profile of profiles" role="listitem">
           <span>
