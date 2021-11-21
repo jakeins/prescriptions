@@ -1,0 +1,39 @@
+* {
+    box-sizing: border-box;
+}
+
+.align-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen {
+    
+}
+::ng-deep#container_svg {
+    @media (max-width: 600px) {
+        height: 65vh;
+      }
+      @media (min-width: 601px) {
+        height: 52vh;
+      }
+}
+::ng-deep#chart-container_svg{
+    @media (max-width: 600px) {
+        height: 90vh;
+      }
+      @media (min-width: 601px) {
+        height: 60vh;
+        width: 100%;
+      }
+}
+
+#container, #chart-container{
+    display: flex !important;
+    justify-content: center;
+}
+
+.align-bottom {
+    margin-bottom: 20px;
+}

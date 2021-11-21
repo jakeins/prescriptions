@@ -1320,6 +1320,152 @@
     "@angular-devkit/schematics" "13.0.2"
     jsonc-parser "3.0.0"
 
+"@syncfusion/ej2-angular-base@~19.3.53":
+  version "19.3.53"
+  resolved "https://advancedmd.jfrog.io/advancedmd/api/npm/advancedmd-npm-shared/@syncfusion/ej2-angular-base/-/ej2-angular-base-19.3.53.tgz#fb7efa3718053455c63b44b82f13724a1be8d267"
+  integrity sha1-+376NxgFNFXGO0S4LxNyShvo0mc=
+  dependencies:
+    "@syncfusion/ej2-base" "~19.3.53"
+    "@syncfusion/ej2-icons" "~19.3.53"
+    core-js "^3.4.8"
+    reflect-metadata "^0.1.9"
+    rxjs "^6.5.4"
+    rxjs-compat "^6.5.4"
+    zone.js "^0.10.2"
+
+"@syncfusion/ej2-angular-charts@^19.3.54":
+  version "19.3.54"
+  resolved "https://advancedmd.jfrog.io/advancedmd/api/npm/advancedmd-npm-shared/@syncfusion/ej2-angular-charts/-/ej2-angular-charts-19.3.54.tgz#e2a399bd10f640c5f6d049dd794b544aead25774"
+  integrity sha1-4qOZvRD2QMX20EndeUtUSurSV3Q=
+  dependencies:
+    "@syncfusion/ej2-angular-base" "~19.3.53"
+    "@syncfusion/ej2-base" "~19.3.54"
+    "@syncfusion/ej2-charts" "19.3.54"
+
+"@syncfusion/ej2-base@~19.3.53", "@syncfusion/ej2-base@~19.3.54":
+  version "19.3.54"
+  resolved "https://advancedmd.jfrog.io/advancedmd/api/npm/advancedmd-npm-shared/@syncfusion/ej2-base/-/ej2-base-19.3.54.tgz#60e8debcb95ab4b0384e6bdcd19c8bbf47ba8b9c"
+  integrity sha1-YOjevLlatLA4Tmvc0ZyLv0e6i5w=
+  dependencies:
+    "@syncfusion/ej2-icons" "~19.3.53"
+
+"@syncfusion/ej2-buttons@~19.3.53":
+  version "19.3.53"
+  resolved "https://advancedmd.jfrog.io/advancedmd/api/npm/advancedmd-npm-shared/@syncfusion/ej2-buttons/-/ej2-buttons-19.3.53.tgz#0a986d0a4e0c93d018776ef26022595ae7b467c0"
+  integrity sha1-CphtCk4Mk9AYd27yYCJZWue0Z8A=
+  dependencies:
+    "@syncfusion/ej2-base" "~19.3.53"
+
+"@syncfusion/ej2-calendars@~19.3.53":
+  version "19.3.53"
+  resolved "https://advancedmd.jfrog.io/advancedmd/api/npm/advancedmd-npm-shared/@syncfusion/ej2-calendars/-/ej2-calendars-19.3.53.tgz#f936cce36352cca6aa52ec3bb6d5ca119015d483"
+  integrity sha1-+TbM42NSzKaqUuw7ttXKEZAV1IM=
+  dependencies:
+    "@syncfusion/ej2-base" "~19.3.53"
+    "@syncfusion/ej2-buttons" "~19.3.53"
+    "@syncfusion/ej2-inputs" "~19.3.53"
+    "@syncfusion/ej2-lists" "~19.3.53"
+    "@syncfusion/ej2-popups" "~19.3.53"
+
+"@syncfusion/ej2-charts@19.3.54":
+  version "19.3.54"
+  resolved "https://advancedmd.jfrog.io/advancedmd/api/npm/advancedmd-npm-shared/@syncfusion/ej2-charts/-/ej2-charts-19.3.54.tgz#552af1df92473c606b4e5efec149888e76c584af"
+  integrity sha1-VSrx35JHPGBrTl7+wUmIjnbFhK8=
+  dependencies:
+    "@syncfusion/ej2-base" "~19.3.54"
+    "@syncfusion/ej2-calendars" "~19.3.53"
+    "@syncfusion/ej2-compression" "~19.3.53"
+    "@syncfusion/ej2-data" "~19.3.53"
+    "@syncfusion/ej2-file-utils" "~19.3.53"
+    "@syncfusion/ej2-navigations" "~19.3.54"
+    "@syncfusion/ej2-pdf-export" "~19.3.53"
+    "@syncfusion/ej2-svg-base" "~19.3.53"
+
+"@syncfusion/ej2-compression@~19.3.53":
+  version "19.3.53"
+  resolved "https://advancedmd.jfrog.io/advancedmd/api/npm/advancedmd-npm-shared/@syncfusion/ej2-compression/-/ej2-compression-19.3.53.tgz#8be590ea77be92d4cecef0fe067241060ea0a162"
+  integrity sha1-i+WQ6ne+ktTOzvD+BnJBBg6goWI=
+  dependencies:
+    "@syncfusion/ej2-file-utils" "~19.3.53"
+
+"@syncfusion/ej2-data@~19.3.53":
+  version "19.3.53"
+  resolved "https://advancedmd.jfrog.io/advancedmd/api/npm/advancedmd-npm-shared/@syncfusion/ej2-data/-/ej2-data-19.3.53.tgz#9c8b785c27f44d5837ef8d178bfeae47f9c287fb"
+  integrity sha1-nIt4XCf0TVg3740Xi/6uR/nCh/s=
+  dependencies:
+    "@syncfusion/ej2-base" "~19.3.53"
+
+"@syncfusion/ej2-file-utils@~19.3.53":
+  version "19.3.53"
+  resolved "https://advancedmd.jfrog.io/advancedmd/api/npm/advancedmd-npm-shared/@syncfusion/ej2-file-utils/-/ej2-file-utils-19.3.53.tgz#0eef3d9a6b416d0ccd368ec746fd7753f75a4182"
+  integrity sha1-Du89mmtBbQzNNo7HRv13U/daQYI=
+
+"@syncfusion/ej2-icons@~19.3.53":
+  version "19.3.53"
+  resolved "https://advancedmd.jfrog.io/advancedmd/api/npm/advancedmd-npm-shared/@syncfusion/ej2-icons/-/ej2-icons-19.3.53.tgz#2aabdc59eea27dbdd8f32dc9876ca8fd07386ac4"
+  integrity sha1-KqvcWe6ifb3Y8y3Jh2yo/Qc4asQ=
+
+"@syncfusion/ej2-inputs@~19.3.53":
+  version "19.3.53"
+  resolved "https://advancedmd.jfrog.io/advancedmd/api/npm/advancedmd-npm-shared/@syncfusion/ej2-inputs/-/ej2-inputs-19.3.53.tgz#12eeed652d07ec7d9df2e4c3ec10502afcf9f8c6"
+  integrity sha1-Eu7tZS0H7H2d8uTD7BBQKvz5+MY=
+  dependencies:
+    "@syncfusion/ej2-base" "~19.3.53"
+    "@syncfusion/ej2-buttons" "~19.3.53"
+    "@syncfusion/ej2-popups" "~19.3.53"
+    "@syncfusion/ej2-splitbuttons" "~19.3.53"
+
+"@syncfusion/ej2-lists@~19.3.53":
+  version "19.3.53"
+  resolved "https://advancedmd.jfrog.io/advancedmd/api/npm/advancedmd-npm-shared/@syncfusion/ej2-lists/-/ej2-lists-19.3.53.tgz#40d1ef4f95d7d281d3b8001064f60bd005100dd3"
+  integrity sha1-QNHvT5XX0oHTuAAQZPYL0AUQDdM=
+  dependencies:
+    "@syncfusion/ej2-base" "~19.3.53"
+    "@syncfusion/ej2-buttons" "~19.3.53"
+    "@syncfusion/ej2-data" "~19.3.53"
+
+"@syncfusion/ej2-navigations@~19.3.54":
+  version "19.3.54"
+  resolved "https://advancedmd.jfrog.io/advancedmd/api/npm/advancedmd-npm-shared/@syncfusion/ej2-navigations/-/ej2-navigations-19.3.54.tgz#65a7226bb97279c81c197d2b60e776b0c448931c"
+  integrity sha1-Zacia7lyecgcGX0rYOd2sMRIkxw=
+  dependencies:
+    "@syncfusion/ej2-base" "~19.3.54"
+    "@syncfusion/ej2-buttons" "~19.3.53"
+    "@syncfusion/ej2-data" "~19.3.53"
+    "@syncfusion/ej2-inputs" "~19.3.53"
+    "@syncfusion/ej2-lists" "~19.3.53"
+    "@syncfusion/ej2-popups" "~19.3.53"
+
+"@syncfusion/ej2-pdf-export@~19.3.53":
+  version "19.3.53"
+  resolved "https://advancedmd.jfrog.io/advancedmd/api/npm/advancedmd-npm-shared/@syncfusion/ej2-pdf-export/-/ej2-pdf-export-19.3.53.tgz#b5c6518304a429e4f006f435efd9d10981ef4874"
+  integrity sha1-tcZRgwSkKeTwBvQ179nRCYHvSHQ=
+  dependencies:
+    "@syncfusion/ej2-compression" "~19.3.53"
+
+"@syncfusion/ej2-popups@~19.3.53":
+  version "19.3.53"
+  resolved "https://advancedmd.jfrog.io/advancedmd/api/npm/advancedmd-npm-shared/@syncfusion/ej2-popups/-/ej2-popups-19.3.53.tgz#2b8beaac1e78a70a402fa3063ce793928a33b5db"
+  integrity sha1-K4vqrB54pwpAL6MGPOeTkooztds=
+  dependencies:
+    "@syncfusion/ej2-base" "~19.3.53"
+    "@syncfusion/ej2-buttons" "~19.3.53"
+
+"@syncfusion/ej2-splitbuttons@~19.3.53":
+  version "19.3.53"
+  resolved "https://advancedmd.jfrog.io/advancedmd/api/npm/advancedmd-npm-shared/@syncfusion/ej2-splitbuttons/-/ej2-splitbuttons-19.3.53.tgz#8f25740f27c9212ebcbf0dccf52f7ad5fda0ee6c"
+  integrity sha1-jyV0DyfJIS68vw3M9S961f2g7mw=
+  dependencies:
+    "@syncfusion/ej2-base" "~19.3.53"
+    "@syncfusion/ej2-popups" "~19.3.53"
+
+"@syncfusion/ej2-svg-base@~19.3.53":
+  version "19.3.53"
+  resolved "https://advancedmd.jfrog.io/advancedmd/api/npm/advancedmd-npm-shared/@syncfusion/ej2-svg-base/-/ej2-svg-base-19.3.53.tgz#748660ecd99552c4f6b7f0712b70a52e42975042"
+  integrity sha1-dIZg7NmVUsT2t/BxK3ClLkKXUEI=
+  dependencies:
+    "@syncfusion/ej2-base" "~19.3.53"
+
 "@tootallnate/once@1":
   version "1.1.2"
   resolved "https://advancedmd.jfrog.io/advancedmd/api/npm/advancedmd-npm-shared/@tootallnate/once/-/once-1.1.2.tgz#ccb91445360179a04e7fe6aff78c00ffc1eeaf82"
@@ -2257,6 +2403,11 @@ core-js@3.19.0:
   version "3.19.0"
   resolved "https://advancedmd.jfrog.io/advancedmd/api/npm/advancedmd-npm-shared/core-js/-/core-js-3.19.0.tgz#9e40098a9bc326c7e81b486abbd5e12b9d275176"
   integrity sha1-nkAJipvDJsfoG0hqu9XhK50nUXY=
+
+core-js@^3.4.8:
+  version "3.19.1"
+  resolved "https://advancedmd.jfrog.io/advancedmd/api/npm/advancedmd-npm-shared/core-js/-/core-js-3.19.1.tgz#f6f173cae23e73a7d88fa23b6e9da329276c6641"
+  integrity sha1-9vFzyuI+c6fYj6I7bp2jKSdsZkE=
 
 core-util-is@~1.0.0:
   version "1.0.3"
@@ -5205,7 +5356,7 @@ readdirp@~3.6.0:
   dependencies:
     picomatch "^2.2.1"
 
-reflect-metadata@^0.1.2:
+reflect-metadata@^0.1.2, reflect-metadata@^0.1.9:
   version "0.1.13"
   resolved "https://advancedmd.jfrog.io/advancedmd/api/npm/advancedmd-npm-shared/reflect-metadata/-/reflect-metadata-0.1.13.tgz#67ae3ca57c972a2aa1642b10fe363fe32d49dc08"
   integrity sha1-Z648pXyXKiqhZCsQ/jY/4y1J3Ag=
@@ -5362,7 +5513,12 @@ run-parallel@^1.1.9:
   dependencies:
     queue-microtask "^1.2.2"
 
-rxjs@6.6.7:
+rxjs-compat@^6.5.4:
+  version "6.6.7"
+  resolved "https://advancedmd.jfrog.io/advancedmd/api/npm/advancedmd-npm-shared/rxjs-compat/-/rxjs-compat-6.6.7.tgz#6eb4ef75c0a58ea672854a701ccc8d49f41e69cb"
+  integrity sha1-brTvdcCljqZyhUpwHMyNSfQeacs=
+
+rxjs@6.6.7, rxjs@^6.5.4:
   version "6.6.7"
   resolved "https://advancedmd.jfrog.io/advancedmd/api/npm/advancedmd-npm-shared/rxjs/-/rxjs-6.6.7.tgz#90ac018acabf491bf65044235d5863c4dab804c9"
   integrity sha1-kKwBisq/SRv2UEQjXVhjxNq4BMk=
@@ -6295,6 +6451,11 @@ yocto-queue@^0.1.0:
   version "0.1.0"
   resolved "https://advancedmd.jfrog.io/advancedmd/api/npm/advancedmd-npm-shared/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
   integrity sha1-ApTrPe4FAo0x7hpfosVWpqrxChs=
+
+zone.js@^0.10.2:
+  version "0.10.3"
+  resolved "https://advancedmd.jfrog.io/advancedmd/api/npm/advancedmd-npm-shared/zone.js/-/zone.js-0.10.3.tgz#3e5e4da03c607c9dcd92e37dd35687a14a140c16"
+  integrity sha1-Pl5NoDxgfJ3NkuN901aHoUoUDBY=
 
 zone.js@~0.11.4:
   version "0.11.4"
