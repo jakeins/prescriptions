@@ -37,6 +37,10 @@ const routes: Routes = [
     component: ProfileComponent
   },
   {
+    path: 'profile/:pid/treatment/:id',
+    component: TretmentComponent
+  },
+  {
     path: 'treatment/:id',
     component: TretmentComponent
   },

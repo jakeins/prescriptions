@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ITreatment, IUserPermission } from 'src/app/models/shared';
 import { GodDataService } from 'src/app/services/god-data.service';
@@ -9,6 +9,9 @@ import { GodDataService } from 'src/app/services/god-data.service';
   styleUrls: ['./generate-schedule.component.scss']
 })
 export class GenerateScheduleComponent implements OnInit {
+  @Input() ownerEmail = '';
+  @Output() generated = new EventEmitter<ITreatment>();
+
   constructor(
     private godDataService: GodDataService,
     private fb: FormBuilder,
@@ -44,7 +47,7 @@ export class GenerateScheduleComponent implements OnInit {
 
       doctorEmail: [{value: '', disabled: true}, Validators.required],
       doctorCanWatch: {value: true, disabled: true},
-      doctorCanTake: {value: false, disabled: false},
+      doctorCanTake: {value: true, disabled: false},
       doctorCanEdit: {value: true, disabled: true},
 
       patientEmail: '',
@@ -68,8 +71,7 @@ export class GenerateScheduleComponent implements OnInit {
   public form: FormGroup;
 
   ngOnInit(): void {
-    const mockDoctorEmail = 'drhouse@yahoo.com';
-    this.form.controls['doctorEmail'].setValue(mockDoctorEmail);
+    this.form.controls['doctorEmail'].setValue(this.ownerEmail);
   }
 
   generate() {
@@ -165,8 +167,8 @@ export class GenerateScheduleComponent implements OnInit {
       userPermissions: permissions
     };
 
-    console.log(treatment);
-
+    console.log('generated treatment', treatment);
+    this.generated.emit(treatment);
   }
 
 }

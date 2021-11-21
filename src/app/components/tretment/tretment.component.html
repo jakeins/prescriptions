@@ -2,11 +2,25 @@
   <section>
     <h1>{{treatment.name}}</h1>
     <div class="treatment__info" *ngFor="let medication of treatment.medications" role="listitem">
+      <p *ngIf="!isNewTreatment">Profile: <strong>{{medication.name}}</strong></p>
+
       <p>Medication Name: <strong>{{medication.name}}</strong></p>  
       <p>Times per day: <strong>1</strong></p>
       <p>Days: <strong>{{ medication.schedule.takes.length }}</strong></p>
       <p>Summary: <strong>{{medication.schedule.summary}}</strong></p>
-      <button mat-flat-button (click)="accept()" color="primary">Accept</button>
+
+      <mat-form-field appearance="fill" *ngIf="isNewTreatment">
+        <mat-label>Profile</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let profile of user.profiles" [value]="user.profiles[0].name">
+            {{profile.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br/>
+
+      <button *ngIf="isNewTreatment" mat-flat-button (click)="accept()" color="primary">Accept</button>
+      <a *ngIf="!isNewTreatment" mat-flat-button color="primary" [routerLink]="['/profile', profile.name]" >Back</a>
       <mat-divider></mat-divider>
     </div>
   </section>
