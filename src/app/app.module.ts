@@ -13,6 +13,9 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTimepickerModule } from 'mat-timepicker';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,6 +30,8 @@ import { TreatmentCrudService } from './services/treatment-crud.service';
 import { UserCrudService } from './services/user-crud.service';
 import { ProfileComponent } from './components/profile/profile.component';
 import { MatNativeDateModule } from '@angular/material/core';
+import { TabsGroupComponent } from './shared/tabs-group/tabs-group.component';
+import { StatusComponent } from './components/status/status.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +42,9 @@ import { MatNativeDateModule } from '@angular/material/core';
     TodayComponent,
     StatsComponent,
     ProfileComponent,
-    GenerateScheduleComponent
+    GenerateScheduleComponent,
+    TabsGroupComponent,
+    StatusComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +63,10 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatDatepickerModule,
     MatNativeDateModule,
     MatCheckboxModule,
-    MatTimepickerModule
+    MatTimepickerModule,
+    MatDividerModule,
+    MatCardModule,
+    MatButtonToggleModule
   ],
   providers: [
     FormGroupDirective,

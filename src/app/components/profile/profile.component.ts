@@ -15,6 +15,7 @@ import { IRichProfile } from 'src/app/models/rich-profile.interface';
 export class ProfileComponent implements OnInit {
   public user!: IRichUser;
   public profile!: IRichProfile;
+  public treatmentForm = false; 
 
   constructor(
     private route: ActivatedRoute,
@@ -33,5 +34,8 @@ export class ProfileComponent implements OnInit {
   public showActive() { }
   public showCompleted() { }
   public showAll() { }
+  public showTreatmentForm() {
+    this.treatmentForm = !this.treatmentForm;
+  }
 
 }

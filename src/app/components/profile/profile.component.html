@@ -8,7 +8,23 @@
             <a mat-button [routerLink]="['/treatment', treatment.id]">
               {{ treatment.name }}
             </a>
+            <mat-divider></mat-divider>
           </mat-list-item>
+          <section class="profile__status-tabs__add">
+            <p>Add Treatment 
+              <button 
+                mat-mini-fab 
+                (click)="showTreatmentForm()"
+                color="primary" 
+                aria-label="Add Treatments">
+                +
+              </button>
+           </p>
+          </section>
+          <ng-container *ngIf="treatmentForm">
+            <generate-schedule></generate-schedule>
+          </ng-container>
+          <mat-divider></mat-divider>
         </mat-list>
       </mat-tab>
       <mat-tab (click)="showCompleted()" label="Completed"> Content 2 </mat-tab>

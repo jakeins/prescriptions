@@ -50,4 +50,11 @@ export class ProfilesComponent implements OnInit {
     }
   }
 
+  public setCurrentProfile(profile: IRichProfile) {
+    if (profile) {
+      this.userDataService.setCurrentProfile(profile);
+    }
+
+  }
+
 }

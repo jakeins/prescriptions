@@ -8,7 +8,11 @@
 
   &__list {
     @extend .display-flex;
+    width: auto;
     ::ng-deep {
+      mat-card {
+        width: 100%;
+      }
       mat-list {
         mat-list-item {
           .mat-list-item-content {
@@ -17,11 +21,14 @@
             span > button {
               margin-left: 14px;
             }
+
+            mad-divider {
+              margin-top: 14px;
+            }
           }
         }
       }
     }
-
     margin: 24px;
   }
 
@@ -40,9 +47,11 @@
       }
     }
   }
+
   p {
     text-align: center;
     margin: 24px 0;
+  
     button {
       margin-left: 24px;
     }
