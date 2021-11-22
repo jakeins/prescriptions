@@ -23,18 +23,15 @@
               {{ richtake.profile.name }}
             </span>
 
+            <a *ngIf="richtake.isOverdue" mat-flat-button disabled>Overdue</a>
+            <a *ngIf="richtake.isSkipped" mat-flat-button disabled>Skipped</a>
+            <a *ngIf="richtake.isTaken" mat-flat-button disabled>Taken</a>
+
             <span *ngIf="richtake.isEditable">
               <button mat-flat-button color="primary" (click)="take(richtake)">Take</button>
               &nbsp;
               <button mat-flat-button color="warn" (click)="skip(richtake)">Skip</button>
             </span>
-
-            <a *ngIf="richtake.isOverdue" mat-flat-button disabled>Overdue</a>
-
-            <a *ngIf="richtake.isSkipped" mat-flat-button disabled>Skipped</a>
-
-            <a *ngIf="richtake.isTaken" mat-flat-button disabled>Taken</a>
-            
 
           </span>
         <mat-divider></mat-divider>

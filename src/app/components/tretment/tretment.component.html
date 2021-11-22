@@ -2,13 +2,13 @@
   <section>
     <h1>{{treatment.name}}</h1>
     <div class="treatment__info" *ngFor="let medication of treatment.medications" role="listitem">
-      <p *ngIf="!isNewTreatment">Profile: <strong>{{medication.name}}</strong></p>
+      <p *ngIf="!isNewTreatment">Profile: <strong>{{ profile.name }}</strong></p>
 
       <p>Doctor: <strong>{{ treatment.author }}</strong></p>
 
       <p>Access: <strong>{{ accessType }}</strong></p>
 
-      <p>Medication: <strong>{{medication.name}}</strong></p>
+      <p>Medication: <strong>{{ medication.name }}</strong></p>
 
       <mat-form-field appearance="fill" *ngIf="isNewTreatment">
         <mat-label>Profile</mat-label>

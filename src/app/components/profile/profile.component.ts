@@ -47,26 +47,20 @@ export class ProfileComponent implements OnInit {
     // TODO: offload to a service
     // Create treatment
     this.godDataService.CreateTreatment(t).subscribe(ct => {
-      // Share treatment
-      this.godDataService.shareTreatment(
-        ct.id,
-        t.userPermissions[0]
-      ).subscribe(() => {
         // Get current profiles
         this.godDataService.GetUser(this.user.login).subscribe(su => {
           // Add new treatment to accepted ones
           const simpleProfs = (su as IUser).profiles;
           const freashProfile = simpleProfs.find(p => p.name === this.profile.name) as IProfile;
           freashProfile.acceptedTreatmentIds.push(ct.id);
-          this.godDataService.UpdateUserProfiles(this.user.login, simpleProfs).subscribe(() => {
-            // Reset frontent user data.
-            this.userDataService.resetUserData().subscribe(() => {
-              this.treatmentForm = false;
-              this.resetUserData(this.profile.name);
+            this.godDataService.UpdateUserProfiles(this.user.login, simpleProfs).subscribe(() => {
+              // Reset frontent user data.
+              this.userDataService.resetUserData().subscribe(() => {
+                this.treatmentForm = false;
+                this.resetUserData(this.profile.name);
+              });
             });
-          });
         })
-      })
     });
   }
 }
