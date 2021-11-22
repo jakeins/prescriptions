@@ -69,8 +69,8 @@ export class TodayComponent implements OnInit {
 
             rt.isClosed = rt.isTaken || rt.isSkipped;
             rt.isOverdue = !rt.isClosed && new Date() > new Date(new Date(take.planned).setHours(new Date(take.planned).getHours() + 2));
-            rt.isComing = !rt.isClosed && !rt.isOverdue && new Date() > new Date(new Date(take.planned).setHours(new Date(take.planned).getHours() - 2));
-            rt.isComingOrLater = new Date() < new Date(new Date(take.planned).setHours(new Date(take.planned).getHours() - 2));
+            rt.isComingOrLater = new Date(take.planned) >= new Date(new Date().setHours(new Date().getHours() - 2));
+            rt.isComing = !rt.isClosed && !rt.isOverdue && rt.isComingOrLater && new Date(take.planned) <= new Date(new Date().setHours(new Date().getHours() + 2));
             rt.isEditable = rt.isComingOrLater && !rt.isClosed;
 
             return rt;
