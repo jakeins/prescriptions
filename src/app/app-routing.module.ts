@@ -29,6 +29,10 @@ const routes: Routes = [
     component: TodayComponent
   },
   {
+    path: 'forever-timeline',
+    component: TodayComponent
+  },
+  {
     path: 'status',
     component: StatusComponent
   },

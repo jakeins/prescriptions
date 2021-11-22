@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IRichProfile } from 'src/app/models/rich-profile.interface';
 import { IMedication, ITake, ITreatment } from 'src/app/models/shared';
 import { GodDataService } from 'src/app/services/god-data.service';
@@ -31,14 +32,21 @@ export class TodayComponent implements OnInit {
 
   public now = new Date();
 
-  public foreverMode = true;
+  public foreverMode = false;
 
   constructor(
     private userDataService: UserService,
     private godDataService: GodDataService,
+    private route: ActivatedRoute,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
+    if (this.router.url == '/forever-timeline') {
+      console.log('Setting forever mode', true);
+      this.foreverMode = true;
+    }
+
     this.collectRichTakes();
   }
 
@@ -71,7 +79,7 @@ export class TodayComponent implements OnInit {
             rt.isOverdue = !rt.isClosed && new Date() > new Date(new Date(take.planned).setHours(new Date(take.planned).getHours() + 2));
             rt.isComingOrLater = new Date(take.planned) >= new Date(new Date().setHours(new Date().getHours() - 2));
             rt.isComing = !rt.isClosed && !rt.isOverdue && rt.isComingOrLater && new Date(take.planned) <= new Date(new Date().setHours(new Date().getHours() + 2));
-            rt.isEditable = rt.isComingOrLater && !rt.isClosed;
+            rt.isEditable = !rt.isClosed && (this.foreverMode || rt.isComing);
 
             return rt;
         }))
